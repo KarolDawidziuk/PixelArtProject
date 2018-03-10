@@ -35,24 +35,23 @@ function setGridColor(event){
  function makeGrid(){
   	//protected the form from submitting non-exist data and page is not refresh
   	event.preventDefault();
-	//clearCanvas();
+	clearGrid();
 
-	let grid;
   	const gridSize = getGridSize();
 
   	//Making grid loop
   	for(let row = 0; row < gridSize.numRows; row++){
-  		grid += "<tr>";
+  		let canvasRow = elements.pixelCanvas.innerHTML = "<tr>";
   		for(let col = 0; col < gridSize.numCols; col++){
-  			grid += "<td></td>";
+  			let canvasCol = elements.pixelCanvas.innerHTML = "<td><td>";
   		}
-  		grid += "</td>";
+  		 canvasRow = elements.pixelCanvas.innerHTML = "</tr>"
   	}
  }
 
 //button Event
 const events = function() {
-	document.getElementById('sizePicker').addEventListener('submit', makeGrid);
+	document.getElementById('sizePicker').addEventListener('submit', makeGrid, false);
 	elements.pixelCanvas.addEventListener('click', setGridColor);
-}
+};
 events();
