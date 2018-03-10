@@ -3,7 +3,7 @@ const elements = {
 	colorPicker: document.getElementById('colorPicker'),
 	pixelCanvas: document.getElementById('pixelCanvas'),
 	inputWeight: document.getElementById('inputWeight'),
-	inputHeight: document.getElemenyById('inputHeight')
+	inputHeight: document.getElementById('inputHeight')
 };
 
 //Sets Grid Color
@@ -35,7 +35,7 @@ function setGridColor(event){
  function makeGrid(){
   	//protected the form from submitting non-exist data and page is not refresh
   	event.preventDefault();
-	clearCanvas();
+	//clearCanvas();
 
 	let grid;
   	const gridSize = getGridSize();
@@ -48,11 +48,11 @@ function setGridColor(event){
   		}
   		grid += "</td>";
   	}
-  		pixelCanvas.html(grid);
-  		pixelCanvas.css("background-color", "#ffffff");
- };
+ }
 
 //button Event
-function submitButton(){
+const events = function() {
 	document.getElementById('sizePicker').addEventListener('submit', makeGrid);
+	elements.pixelCanvas.addEventListener('click', setGridColor);
 }
+events();
