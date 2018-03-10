@@ -17,7 +17,7 @@ function setGridColor(event){
  function getGridSize()
  {
  	let numRows = elements.inputHeight.value;
- 	let numCols = elements.inputheight.value;
+ 	let numCols = elements.inputWeight.value;
 
  	return{
  		numRows: parseInt(numRows),
@@ -51,3 +51,8 @@ function setGridColor(event){
   		pixelCanvas.html(grid);
   		pixelCanvas.css("background-color", "#ffffff");
  };
+
+//button Event
+function submitButton(){
+	document.getElementById('sizePicker').addEventListener('submit', makeGrid);
+}
