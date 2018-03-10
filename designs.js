@@ -9,7 +9,6 @@ const elements = {
 //Sets Grid Color
 function setGridColor(event){
 	let color = elements.colorPicker.value;
-
 	event.target.setAttribute('style', 'background-color: ' + color);
 }
 
@@ -22,14 +21,14 @@ function setGridColor(event){
  	return{
  		numRows: parseInt(numRows),
  		numCols: parseInt(numCols)
+
  	}
  }
 
  //Clear grid
- function clearGrid()
-{
+ function clearGrid(){
 	elements.pixelCanvas.innerHTML = "";
-}
+ }
 
 //Make Grid
  function makeGrid(){
@@ -41,17 +40,17 @@ function setGridColor(event){
 
   	//Making grid loop
   	for(let row = 0; row < gridSize.numRows; row++){
-  		let canvasRow = elements.pixelCanvas.innerHTML = "<tr>";
+  		let rows = elements.pixelCanvas.insertRow(row);
+
   		for(let col = 0; col < gridSize.numCols; col++){
-  			let canvasCol = elements.pixelCanvas.innerHTML = "<td><td>";
+  			rows.insertCell(col);
   		}
-  		 canvasRow = elements.pixelCanvas.innerHTML = "</tr>"
   	}
  }
 
 //button Event
 const events = function() {
-	document.getElementById('sizePicker').addEventListener('submit', makeGrid, false);
+	document.getElementById('sizePicker').addEventListener('submit', makeGrid);
 	elements.pixelCanvas.addEventListener('click', setGridColor);
 };
 events();
